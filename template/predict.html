@@ -1,0 +1,387 @@
+{%load static%}
+
+<!DOCTYPE html>
+
+<head>
+  <title>Predict the Sales</title>
+</head>
+<body>
+  <div class="formbold-main-wrapper">
+    <!-- Author: FormBold Team -->
+    <!-- Learn More: https://formbold.com -->
+    <div class="formbold-form-wrapper">
+       <img src="">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="formbold-input-flex">
+          <!-- Retailer -->
+          <div>
+            <label class="formbold-form-label">Retailer</label>
+            <select class="formbold-form-input" name="retailer" id="retailer">
+              <option value="foot-locker">Foot Locker</option>
+              <option value="Walmart">Walmart</option>
+              <option value="Sports-Direct">Sports Direct</option>
+              <option value="West-Gear">West Gear</option>
+              <option value="Kohls">Kohl's</option>
+              <option value="Amazon">Amazon</option>
+            </select>
+          </div>
+          
+          <!-- Region -->
+          <div>
+            <label class="formbold-form-label">Region</label>
+            <select class="formbold-form-input" name="region" id="region">
+              <option value="1">Northeast</option>
+              <option value="2">South</option>
+              <option value="3">West</option>
+              <option value="4">Midwest</option>
+              <option value="5">Southeast</option>
+            </select>
+          </div>
+        </div>
+
+        
+        <div class="formbold-input-flex">
+          <!-- State -->
+          <div>
+            <label class="formbold-form-label">State</label>
+            <select class="formbold-form-input" name="state" id="state">
+              <option value="0">New York</option>
+              <option value="Pennsylvania">Pennsylvania</option>
+              <option value="Maine">Maine</option>
+              <option value="New Hampshire">New Hampshire</option>
+              <option value="Vermont">Vermont</option>
+              <option value="Connecticut">Connecticut</option>
+              <option value="Rhode Island">Rhode Island</option>
+              <option value="Massachusetts">Massachusetts</option>
+              <option value="Midwest">Midwest</option>
+              <option value="Illinois">Illinois</option>
+              <option value="Minnesota">Minnesota</option>
+              <option value="Missouri">Missouri</option>
+              <option value="Michigan">Michigan</option>
+              <option value="Ohio">Ohio</option>
+              <option value="Indiana">Indiana</option>
+              <option value="Wisconsin">Wisconsin</option>
+              <option value="Iowa">Iowa</option>
+              <option value="South Dakota">South Dakota</option>
+              <option value="North Dakota">North Dakota</option>
+              <option value="Nebraska">Nebraska</option>
+              <option value="Kansas">Kansas</option>
+              <option value="South">South</option>
+              <option value="Texas">Texas</option>
+              <option value="Oklahoma">Oklahoma</option>
+              <option value="Arkansas">Arkansas</option>
+              <option value="Louisiana">Louisiana</option>
+              <option value="Kentucky">Kentucky</option>
+              <option value="Mississippi">Mississippi</option>
+              <option value="Tennessee">Tennessee</option>
+              <option value="Alabama">Alabama</option>
+              <option value="Georgia">Georgia</option>
+              <option value="South Carolina">South Carolina</option>
+              <option value="North Carolina">North Carolina</option>
+              <option value="Virginia">Virginia</option>
+              <option value="West">West</option>
+              <option value="California">California</option>
+              <option value="Nevada">Nevada</option>
+              <option value="Oregon">Oregon</option>
+              <option value="Washington">Washington</option>
+              <option value="Arizona">Arizona</option>
+              <option value="New Mexico">New Mexico</option>
+              <option value="Utah">Utah</option>
+              <option value="Colorado">Colorado</option>
+              <option value="Wyoming">Wyoming</option>
+              <option value="Alaska">Alaska</option>
+              <option value="Hawaii">Hawaii</option>
+              <option value="Maryland">Maryland</option>
+              <option value="Delaware">Delaware</option>
+              <option value="New Jersey">New Jersey</option>
+            </select>
+          </div>
+          <!-- City -->
+          <div>
+            <label class="formbold-form-label">City</label>
+            <select class="formbold-form-input" name="city" id="city">
+              <option value="New York">New York</option>
+              <option value="Albany">Albany</option>
+              <option value="Cheyenne">Cheyenne</option>
+              <option value="Richmond">Richmond</option>
+              <option value="Detroit">Detroit</option>
+              <option value="St. Louis">St. Louis</option>
+              <option value="Baltimore">Baltimore</option>
+              <option value="Wilmington">Wilmington</option>
+              <option value="Newark">Newark</option>
+              <option value="Hartford">Hartford</option>
+              <option value="Providence">Providence</option>
+              <option value="Boston">Boston</option>
+              <option value="Burlington">Burlington</option>
+              <option value="Manchester">Manchester</option>
+              <option value="South">South</option>
+              <option value="Houston">Houston</option>
+              <option value="Dallas">Dallas</option>
+              <option value="Miami">Miami</option>
+              <option value="Knoxville">Knoxville</option>
+              <option value="Birmingham">Birmingham</option>
+              <option value="Anchorage">Anchorage</option>
+              <option value="Honolulu">Honolulu</option>
+              <option value="Orlando">Orlando</option>
+              <option value="West">West</option>
+              <option value="San Francisco">San Francisco</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Las Vegas">Las Vegas</option>
+              <option value="Denver">Denver</option>
+              <option value="Seattle">Seattle</option>
+              <option value="Portland">Portland</option>
+              <option value="Phoenix">Phoenix</option>
+              <option value="Albuquerque">Albuquerque</option>
+              <option value="Atlanta">Atlanta</option>
+              <option value="Charleston">Charleston</option>
+              <option value="Charlotte">Charlotte</option>
+              <option value="Columbus">Columbus</option>
+              <option value="Louisville">Louisville</option>
+              <option value="Jackson">Jackson</option>
+              <option value="Little Rock">Little Rock</option>
+              <option value="Oklahoma City">Oklahoma City</option>
+              <option value="Wichita">Wichita</option>
+              <option value="Sioux Falls">Sioux Falls</option>
+              <option value="Fargo">Fargo</option>
+              <option value="Des Moines">Des Moines</option>
+              <option value="Milwaukee">Milwaukee</option>
+              <option value="Indianapolis">Indianapolis</option>
+              <option value="Delaware">Delaware</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Philadelphia">Philadelphia</option>
+              <option value="Minneapolis">Minneapolis</option>
+              <option value="Billings">Billings</option>
+              <option value="Omaha">Omaha</option>
+              <option value="Salt Lake City">Salt Lake City</option>
+              <option value="New Orleans">New Orleans</option>
+              <option value="Boise">Boise</option>  
+            </select>
+          </div>
+        </div>
+        
+
+        <!-- Product -->
+        <div class="formbold-input-flex">
+          <div>
+            <label class="formbold-form-label">Product</label>
+
+            <select class="formbold-form-input" name="product" id="product">
+              <option value="Men's Apparel">Men's Apparel</option>
+              <option value="Women's Apparel">Women's Apparel</option>
+              <option value="Men's Street Footwear">Men's Street Footwear</option>
+              <option value="Men's Athletic Footwear">Men's Athletic Footwear</option>
+              <option value="Women's Street Footwear">Women's Street Footwear</option>
+              <option value="Women's Athletic Footwear">Women's Athletic Footwear</option>
+            </select>
+          </div>
+          <!-- Sale Method -->
+          <div>
+            <label class="formbold-form-label">Sales Method</label>
+
+            <select class="formbold-form-input" name="method" id="method">
+              <option value="InStore">In-store</option>
+              <option value="Outlet">Outlet</option>
+              <option value="Online">Online</option>
+            </select>
+          </div>
+        </div> 
+
+        <!-- Price per unit -->
+        <div class="formbold-mb-3 formbold-input-wrapp">
+          <label for="ppu" class="formbold-form-label"> Price per Unit </label>
+          <div>
+            <input
+              type="number"
+              name="priceperunit"
+              id="priceperunit"
+              placeholder="Price per Unit"
+              class="formbold-form-input"
+            />
+          </div>
+        </div>
+        <!-- Units sold -->
+        <div class="formbold-mb-3 formbold-input-wrapp">
+          <label for="us" class="formbold-form-label"> Units Sold </label>
+          <div>
+            <input
+              type="number"
+              name="unitssold"
+              id="unitssold"
+              placeholder="Units Sold"
+              class="formbold-form-input"
+            />
+          </div>
+        </div>
+
+        <!-- Operating Profit -->
+        <div class="formbold-mb-3 formbold-input-wrapp">
+          <label for="op" class="formbold-form-label">Operating Profit </label>
+          <div>
+            <input
+              type="number"
+              name="operatingprofit"
+              id="operatingprofit"
+              placeholder="Operating Profit"
+              class="formbold-form-input"
+            />
+          </div>
+        </div>
+        <!-- Operating Margin: -->
+        <div class="formbold-mb-3 formbold-input-wrapp">
+          <label for="om" class="formbold-form-label"> Operating Margin </label>
+          <div>
+            <input
+              type="number"
+              name="operatingmargin"
+              id="operatingmargin"
+              placeholder="Operating Margin"
+              class="formbold-form-input"
+            />
+          </div>
+        </div>
+  
+        <button class="formbold-btn">Predict</button>
+      </form>
+    </div>
+  </div>
+</body>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-image: url("{% static 'assets/imgs/nike-jordan.jpg' %}");
+      background-position: center;
+      font-family: 'Inter', sans-serif;
+    }
+    .formbold-mb-3 {
+      margin-bottom: 15px;
+    }
+  
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+  
+    .formbold-form-wrapper {
+      margin: 0 auto;
+      max-width: 570px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0);
+      padding: 40px;
+    }
+  
+    .formbold-img {
+      display: block;
+      margin: 0 auto 45px;
+    }
+  
+    .formbold-input-wrapp > div {
+      display: flex;
+      gap: 20px;
+    }
+  
+    .formbold-input-flex {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+    .formbold-input-flex > div {
+      width: 50%;
+    }
+    .formbold-form-input {
+      width: 100%;
+      padding: 13px 22px;
+      border-radius: 5px;
+      border: 1px solid #dde3ec;
+      background: #ffffff23;
+      font-weight: 500;
+      font-size: 16px;
+      color: #000000;
+      outline: none;
+      resize: none;
+    }
+    .formbold-form-input::placeholder,
+    select.formbold-form-input,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-text,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-month-field,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-day-field,
+    .formbold-form-input[type='date']::-webkit-datetime-edit-year-field {
+      color: rgb(0, 0, 0);
+    }
+  
+    .formbold-form-input:focus {
+      border-color: #ffffff;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .formbold-form-label {
+      color: #000000;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 24px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    .formbold-form-file-flex {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .formbold-form-file-flex .formbold-form-label {
+      margin-bottom: 0;
+    }
+    .formbold-form-file {
+      font-size: 14px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-form-file::-webkit-file-upload-button {
+      display: none;
+    }
+    .formbold-form-file:before {
+      content: 'Upload file';
+      display: inline-block;
+      background: #EEEEEE;
+      border: 0.5px solid #FBFBFB;
+      box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.25);
+      border-radius: 3px;
+      padding: 3px 12px;
+      outline: none;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      cursor: pointer;
+      color: #637381;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      margin-right: 10px;
+    }
+  
+    .formbold-btn {
+      text-align: center;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 5px;
+      padding: 14px 25px;
+      border: none;
+      font-weight: 500;
+      background-color: #6a64f1;
+      color: white;
+      cursor: pointer;
+      margin-top: 25px;
+    }
+    .formbold-btn:hover {
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+  
+    .formbold-w-45 {
+      width: 45%;
+    }
+  </style>
