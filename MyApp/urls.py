@@ -10,4 +10,5 @@ urlpatterns = [
     path('register', views.register,name='register'),
     path('predict', views.predict,name='predict'),
     path('', views.landing,name='landing'),
+    path('salepredict', views.predictsales, name='predictsales'),
 ]

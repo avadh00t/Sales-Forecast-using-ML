@@ -65,16 +65,18 @@ def register(request):
     # return render(request,'register.html')
 
 def predictsales(request):
-    if request == 'POST':
+    if request.method == 'POST':
         retailer=request.POST.get('retailer')
         region=request.POST.get('region')
         state=request.POST.get('state')
         city=request.POST.get('city')
         product=request.POST.get('product')
         method=request.POST.get('method')
-        priceperunit=request.POST['priceperunit']
-        unitssold=request.POST['unitssold']
-        operatingprofit=request.POST['operatingprofit']
-        operatingmargin=request.POST['operatingmargin']
+        priceperunit=int(request.POST['priceperunit'])
+        unitssold=int(request.POST['unitssold'])
+        operatingprofit=int(request.POST['operatingprofit'])
+        operatingmargin=int(request.POST['operatingmargin'])
 
-        predict = userinput.objects.create()
+        predict = userinput.objects.create(retailer = retailer, region = region, state = state, city = city, product = product, method = method, priceperunit = priceperunit, unitssold = unitssold, operatingprofit = operatingprofit, operatingmargin = operatingmargin)
+        predict.save()
+        return render(request, "inputs.html", {"retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})

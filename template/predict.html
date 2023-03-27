@@ -11,7 +11,7 @@
     <!-- Learn More: https://formbold.com -->
     <div class="formbold-form-wrapper">
        <img src="">
-      <form action="" method="POST">
+      <form id="saleform" name="inputform" action="salepredict" method="POST">
         {% csrf_token %}
         <div class="formbold-input-flex">
           <!-- Retailer -->
@@ -241,7 +241,7 @@
           </div>
         </div>
   
-        <button class="formbold-btn">Predict</button>
+        <button class="formbold-btn" form="saleform">Predict</button>
       </form>
     </div>
   </div>
