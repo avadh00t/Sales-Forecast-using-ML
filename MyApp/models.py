@@ -12,5 +12,5 @@ class userinput(models.Model):
     priceperunit = models.IntegerField()
     unitssold = models.IntegerField()
     operatingprofit = models.IntegerField()
-    operatingmargin = models.IntegerField()
+    operatingmargin = models.FloatField()
     

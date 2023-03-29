@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate
 from django.contrib import messages
-
+import pandas as pd
+from sklearn.linear_model import LinearRegression
 from MyApp.models import userinput
 
 # Create your views here.
@@ -66,17 +67,27 @@ def register(request):
 
 def predictsales(request):
     if request.method == 'POST':
-        retailer=request.POST.get('retailer')
-        region=request.POST.get('region')
-        state=request.POST.get('state')
-        city=request.POST.get('city')
-        product=request.POST.get('product')
-        method=request.POST.get('method')
+        retailer=int(request.POST.get('retailer'))
+        region=int(request.POST.get('region'))
+        state=int(request.POST.get('state'))
+        city=int(request.POST.get('city'))
+        product=int(request.POST.get('product'))
+        method=int(request.POST.get('method'))
         priceperunit=int(request.POST['priceperunit'])
         unitssold=int(request.POST['unitssold'])
         operatingprofit=int(request.POST['operatingprofit'])
-        operatingmargin=int(request.POST['operatingmargin'])
+        operatingmargin=float(request.POST['operatingmargin'])
+
+        data = pd.read_csv(r"static/dataset/sample.csv")
+        
+        X_train = data[['Retailer',	'Region',	'State',	'City',	'Product'	,'Price per Unit',	'Units Sold',	'Operating Profit',	'Operating Margin',	'Method']]
+        Y_train = data[['Total Sales']]
+
+        lr = LinearRegression()
+        lr.fit(X_train, Y_train)
+        
+        prediction_result = lr.predict([[retailer,region,state,city,product,priceperunit,unitssold,operatingprofit,operatingmargin,method]])
 
         predict = userinput.objects.create(retailer = retailer, region = region, state = state, city = city, product = product, method = method, priceperunit = priceperunit, unitssold = unitssold, operatingprofit = operatingprofit, operatingmargin = operatingmargin)
         predict.save()
-        return render(request, "inputs.html", {"retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})
+        return render(request, "inputs.html", {"Prediction":prediction_result, "retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})
