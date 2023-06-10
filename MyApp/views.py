@@ -2,12 +2,14 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate
 from django.contrib import messages
+#from django.contrib.auth.decorators import login_required
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from MyApp.models import userinput
 
 # Create your views here.
 
+#@login_required(login_url='/landing/')
 def index(request):
     return render(request, 'index.html')
 
@@ -22,6 +24,9 @@ def predict(request):
 
 def landing(request):
     return render(request,'landing.html')
+
+def input2(request):
+    return render(request,'input2.html')
 
 def login(request):
     if request.method == "POST":
@@ -90,4 +95,4 @@ def predictsales(request):
 
         predict = userinput.objects.create(retailer = retailer, region = region, state = state, city = city, product = product, method = method, priceperunit = priceperunit, unitssold = unitssold, operatingprofit = operatingprofit, operatingmargin = operatingmargin)
         predict.save()
-        return render(request, "inputs.html", {"Prediction":prediction_result, "retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})
+        return render(request, "inputs2.html", {"Prediction":prediction_result, "retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})
