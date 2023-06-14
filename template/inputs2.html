@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sales Prediction Output</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+    
+    .prediction {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #fff;
+      background-color: #2196f3;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .prediction span {
+      font-weight: bold;
+      color: #fff;
+    }
+    
+    @media (min-width: 576px) {
+      .container {
+        max-width: 500px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .container {
+        max-width: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="display-4">Sales Prediction Output</h1>
+    <div class="prediction bg-primary text-white p-3">
+      <span>Sales Prediction: <b>${{ Prediction }}</b></span>
+    </div>
+  </div>
+</body>
+</html>

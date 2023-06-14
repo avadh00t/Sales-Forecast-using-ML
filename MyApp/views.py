@@ -95,4 +95,4 @@ def predictsales(request):
 
         predict = userinput.objects.create(retailer = retailer, region = region, state = state, city = city, product = product, method = method, priceperunit = priceperunit, unitssold = unitssold, operatingprofit = operatingprofit, operatingmargin = operatingmargin)
         predict.save()
-        return render(request, "inputs2.html", {"Prediction":prediction_result, "retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})
+        return render(request, "inputs2.html", {"Prediction":round(prediction_result[0][0], 2), "retailer" : retailer, "region" : region, "state" : state, "city" : city, "product" : product, "method" : method, "priceperunit" : priceperunit, "unitssold" : unitssold, "operatingprofit" : operatingprofit, "operatingmargin" : operatingmargin})
